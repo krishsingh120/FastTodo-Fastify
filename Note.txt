@@ -35,8 +35,6 @@ onSend → onResponse → onTimeout → onError
 
 
 
-
-
 {
   // === Run & Output ===
   "code-runner.runInTerminal": true,
