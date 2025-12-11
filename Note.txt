@@ -1,0 +1,151 @@
+## In fastify never use arrow function, bcz arrow function doesn't have own 'this'.
+
+## Correct Order of Server Startup
+      Instance created → Plugins registered → Routes registered → onReady → listen()
+
+
+## Correct Order of Server Shutdown
+      fastify.close() → onClose → server stopped
+
+
+2. Request Lifecycle Hooks
+      Fastify also has hooks for each request and response.
+
+
+
+onRequest → preParsing → preValidation → preHandler → handler → 
+onSend → onResponse → onTimeout → onError
+
+
+## Hooks -> is kind like of a Trigger/Event listener.
+    fastify.addHook("onReady", function listener(done) {
+      console.log(`Server is ready to take requests`);
+      done();
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  // === Run & Output ===
+  "code-runner.runInTerminal": true,
+  "code-runner.clearPreviousOutput": true,
+
+  // === General UI ===
+  "redhat.telemetry.enabled": true,
+  "explorer.confirmDelete": false,
+  "cmake.configureOnOpen": true,
+  "editor.minimap.enabled": false,
+  "workbench.colorTheme": "Best Themes - Github Dark Default",
+  "workbench.iconTheme": "material-icon-theme",
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "git.confirmSync": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true,
+  "python.createEnvironment.trigger": "off",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.tree.renderIndentGuides": "none",
+  "editor.guides.highlightActiveIndentation": false,
+
+  // === Formatting ===
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // === Indentation ===
+  "editor.tabSize": 6,
+  "editor.insertSpaces": true,
+
+  // === File Associations ===
+  "workbench.editorAssociations": {
+    "*.exe": "default",
+    "*.html": "default"
+  },
+  "files.associations": {
+    "*.sass": "sass"
+  },
+
+  // === Default Formatters ===
+  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[sass]": { "editor.defaultFormatter": "sasa.vscode-sass-format" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+
+  // === Git Auto Config ===
+  "git-autoconfig.configList": [
+    {
+      "user.email": "bt23eci047@iiit.ac.in",
+      "user.name": "krishsingh10386@gmail.com"
+    }
+  ],
+
+  // =====================================================
+  //     ONLY FILE-PATH SUGGESTIONS — NO OTHER SUGGESTIONS
+  // =====================================================
+
+  // 🔥 MUST BE TRUE → otherwise path suggestions STOP working
+  "javascript.suggest.enabled": true,
+  "typescript.suggest.enabled": true,
+
+  // Only show PATH suggestions
+  "javascript.suggest.paths": true,
+  "typescript.suggest.paths": true,
+
+  // Disable code/variable/function suggestions
+  "javascript.suggest.names": false,
+  "javascript.suggestionActions.enabled": false,
+
+  // Only show suggestions inside strings ("./", "../")
+  "editor.quickSuggestions": {
+    "comments": false,
+    "strings": true,
+    "other": false
+  },
+
+  // Trigger suggestions when typing "./"
+  "editor.suggestOnTriggerCharacters": true,
+
+  // Don't auto-accept suggestions on Enter
+  "editor.acceptSuggestionOnEnter": "off",
+
+  // Replace instead of insert
+  "editor.suggest.insertMode": "replace",
+
+  // Disable snippets completely
+  "editor.suggest.showSnippets": false,
+  "editor.snippetSuggestions": "none",
+
+  // Disable inline ghost suggestions
+  "editor.inlineSuggest.enabled": false,
+
+  // Disable word-based suggestions
+  "editor.wordBasedSuggestions": "off",
+
+  // === Path Intellisense Extension (optional) ===
+  "path-intellisense.autoSlashAfterDirectory": false,
+  "path-intellisense.extensionOnImport": true,
+  "path-intellisense.showHiddenFiles": false,
+  "path-intellisense.absolutePathToWorkspace": false,
+
+  // === Tabnine AI OFF ===
+  "tabnine.inlineSuggestionMode": "disabled",
+  "tabnine.experimentalAutoImports": false,
+
+  // === Autosave ===
+  "files.autoSave": "afterDelay"
+}
