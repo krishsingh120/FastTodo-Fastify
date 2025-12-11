@@ -10,7 +10,7 @@ async function app(fastify, options) {
   await fastify.register(todoRepository);
   await fastify.register(todoService);
 
-  //  Route => /api/v1/todos/
+  // Route => /api/v1/todos/
   fastify.register(apiRouter, { prefix: "/api" });
 }
 
