@@ -28,6 +28,25 @@ onSend → onResponse → onTimeout → onError
 
 
 
+## Using pm2 on my machine level Horizontal scaling are done.
+
+
+## pm2 Most used commands:
+    pm2 start app.js
+    pm2 start app.js -i max
+    pm2 list
+    pm2 logs
+    pm2 monit
+    pm2 restart app
+    pm2 stop app
+    pm2 delete app
+    pm2 scale app 4
+    pm2 reload app
+    pm2 save
+    pm2 startup
+
+
+
 
 
 
