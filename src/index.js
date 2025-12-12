@@ -1,4 +1,4 @@
-const fastify = require("fastify")({ logger: true }); // Root application instance
+const fastify = require("fastify")({ logger: false }); // Root application instance
 
 const app = require("./app");
 const { PORT } = require("./config/serverConfig");

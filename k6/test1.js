@@ -4,7 +4,7 @@ import { Rate } from "k6/metrics";
 export let errorRate = new Rate("error"); // custom metrics
 
 export let options = {
-  vus: 500,
+  vus: 100000,
   duration: "1m",
 };
 
